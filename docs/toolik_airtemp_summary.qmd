@@ -108,17 +108,21 @@ names(toolik_chlorophyll)
 ```{r}
 toolik_chlorophyll$active_chl_a_ug_1 <-
   na_if(toolik_chlorophyll$active_chl_a_ug_l, ".")
+
+toolik_chlorophyll$active_chl_a_ug_1 <- as.numeric(toolik_chlorophyll$active_chl_a_ug_1)
 ```
 
 
 ```{r}
-toolik_chlorophyll_plot <- ggplot(data = toolik_chlorophyll, 
+#toolik_chlorophyll_plot <- 
+ggplot(data = toolik_chlorophyll, 
                                   aes(x = depth, y = as.numeric(active_chl_a_ug_l))) +
   geom_point() +
-  theme_minimal() +
+  theme_dark() +
   labs(title = "Toolik Station Chlorophyll a concentration",
        x = "Depth (m)",
        y = "Chlorophyll a concentration (micrograms per liter)")
+labs(title = "Toolkit chlorophyll concentrations")
 
 
 ```
